@@ -17,23 +17,13 @@ module.exports = {
     },
     output    : {
         path      : path.resolve(__dirname, './dist'),
-        publicPath: '/', //   /js/app.js //интернет путь к нашей сборкое, возможен вариант с http:\\... в конце слеш обязателен
+        publicPath: '/', //   /js/app.js
         filename  : "app.js",
-        //library: "[name]" //модуль, который мы собираем поместится в эту переменную, чтобы можно было использовать его где-то еще
-        //chunks: ["./home", "./about"] //только из этих модулей выносить общую часть
     },
     devServer : {
         contentBase: './dist',
         outputPath : path.resolve(__dirname, 'dist'),
     },
-    /*    resolve: {
-     root: [
-     path.resolve(__dirname),
-     ],
-     modulesDirectories: [
-     'node_modules'
-     ]
-     },*/
     sassLoader: {
         includePaths: [
             path.resolve(__dirname, 'node_modules/bootstrap-sass/assets/stylesheets')
@@ -56,9 +46,6 @@ module.exports = {
             }, {
                 test   : /\.css$/,
                 exclude: /node_modules/,
-                //loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=
-                // [name]__[local]___[hash:base64:5]!resolve-url-loader')
-
                 loader: ExtractTextPlugin.extract('style', 'css!resolve-url-loader')
             }, {
                 test   : /\.scss$/,
